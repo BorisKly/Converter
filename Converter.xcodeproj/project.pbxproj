@@ -28,6 +28,8 @@
 		E41F8BA52A3201290077379B /* LocalDateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BA42A3201290077379B /* LocalDateFormats.swift */; };
 		E41F8BA72A321C3F0077379B /* EnumPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BA62A321C3F0077379B /* EnumPickerDelegate.swift */; };
 		E41F8BA92A3220040077379B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BA82A3220040077379B /* Colors.swift */; };
+		E41F8BB22A36F01A0077379B /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BB12A36F01A0077379B /* Access.swift */; };
+		E41F8BB42A36F2320077379B /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F8BB32A36F2320077379B /* Keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		E41F8BA42A3201290077379B /* LocalDateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDateFormats.swift; sourceTree = "<group>"; };
 		E41F8BA62A321C3F0077379B /* EnumPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPickerDelegate.swift; sourceTree = "<group>"; };
 		E41F8BA82A3220040077379B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		E41F8BB12A36F01A0077379B /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
+		E41F8BB32A36F2320077379B /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +151,8 @@
 		E41F8B942A31F3660077379B /* Converter */ = {
 			isa = PBXGroup;
 			children = (
-				E41F8B952A31F38A0077379B /* ConverterView.swift */,
 				E41F8B972A31F3950077379B /* ConverterViewController.swift */,
+				E41F8B952A31F38A0077379B /* ConverterView.swift */,
 				E41F8B992A31F3A30077379B /* ConverterModel.swift */,
 				E41F8BA02A3200390077379B /* ConverterData.swift */,
 				E41F8BA62A321C3F0077379B /* EnumPickerDelegate.swift */,
@@ -161,6 +165,8 @@
 			children = (
 				E41F8B9C2A31FD780077379B /* NetworkManager.swift */,
 				E41F8B9E2A31FF560077379B /* ConverterResponseData.swift */,
+				E41F8BB12A36F01A0077379B /* Access.swift */,
+				E41F8BB32A36F2320077379B /* Keys.plist */,
 			);
 			path = Menegers;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41F8BB42A36F2320077379B /* Keys.plist in Resources */,
 				E41F8B832A31F17A0077379B /* LaunchScreen.storyboard in Resources */,
 				E41F8B802A31F17A0077379B /* Assets.xcassets in Resources */,
 				E41F8B7E2A31F1790077379B /* Main.storyboard in Resources */,
@@ -291,6 +298,7 @@
 				E41F8BA12A3200390077379B /* ConverterData.swift in Sources */,
 				E41F8BA32A3200B50077379B /* Date+Local.swift in Sources */,
 				E41F8B772A31F1790077379B /* AppDelegate.swift in Sources */,
+				E41F8BB22A36F01A0077379B /* Access.swift in Sources */,
 				E41F8B9A2A31F3A30077379B /* ConverterModel.swift in Sources */,
 				E41F8B9F2A31FF560077379B /* ConverterResponseData.swift in Sources */,
 				E41F8B912A31F2DA0077379B /* ScreensCoordinator.swift in Sources */,

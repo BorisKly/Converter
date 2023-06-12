@@ -26,12 +26,19 @@ enum CurrencyToShow: String {
 
 
 class NetworkManager {
+    
+ 
 
     let key = "access_key=2d4d4d0b1468403c50a537e60400605d"
     public static let shared = NetworkManager()
     private init() {}
 
     public func converter(amount: String, fromCurrency: String, toCurrency: String, onSuccess: @escaping (ConverterData) -> (), onError: (Error) ->()) {
+        
+        print("Key : \(ConfigValues.get().AccessKeys.accessKeyToExchangeRates)")
+//
+        
+        
 
         let url = "https://api.exchangeratesapi.io/v1/convert?" + key + "&from=" + fromCurrency + "&to=" + toCurrency + "&amount=" + amount
         
