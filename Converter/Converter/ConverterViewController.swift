@@ -29,7 +29,7 @@ class ConverterViewController: UIViewController {
 
     override func loadView() {
         let codeView = ConverterView(frame: CGRect.zero)
-        codeView.backgroundColor = Colors.backgroundBase
+        codeView.backgroundColor = Colors.primaryColor
         self.view = codeView
     }
     override func viewDidLoad() {
@@ -55,26 +55,27 @@ class ConverterViewController: UIViewController {
     private func bindView() {
         
         mainView?.convertBtn.rx.tap.bind(onNext: { [weak self] _ in
-            self?.model.setModel {
+            self?.model.setConverter {
                print("")
             }
            // self?.mainView?.resultLbl.text = self?.model.jsonP?.result
         }).disposed(by: disposeBag)
         
         mainView?.amountTextField.rx.text
-            .bind(onNext: { [weak self] text in
-                self?.model.amount = String(text ?? "")
+            .bind(onNext: { [weak self] amount in
+                print(amount)
+                self?.model.value.amount = amount ?? "0"
             }).disposed(by: disposeBag)
         
-        mainView?.toCurrency.rx.itemSelected.bind(onNext: { [weak self] to in
-            print(to.row)
-            self?.model.toCurrency = to.row.description.description
-        }).disposed(by: disposeBag)
+//        mainView?.toCurrency.rx.itemSelected.bind(onNext: { [weak self] to in
+//            print(to.row)
+//            self?.model.value?.toCurrency = to.row.description
+//        }).disposed(by: disposeBag)
        
-        mainView?.fromCurrency.rx.itemSelected.bind(onNext: { [weak self] from in
-            print(from.component.description)
-            self?.model.toCurrency = from.row.description
-        }).disposed(by: disposeBag)
+//        mainView?.fromCurrency.rx.itemSelected.bind(onNext: { [weak self] from in
+//            print(from.component.description)
+//            self?.model.value?.fromCurrency = from.row
+//        }).disposed(by: disposeBag)
         
     }
 }

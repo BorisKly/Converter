@@ -8,19 +8,18 @@
 import Foundation
 
 class ConverterModel {
-
-    var jsonP: ConverterData?
-    var amount: String = ""
-    var fromCurrency: String = ""
-    var toCurrency: String = ""
-
-
-    public func setModel(onSuccess: @escaping () -> Void) {
-        NetworkManager.shared.converter(amount: amount, fromCurrency: fromCurrency, toCurrency: toCurrency, onSuccess: { [weak self] json in
-            self?.jsonP = json
-        DispatchQueue.main.async {
-            onSuccess()
-        }
-    }, onError: { print( $0 )})
+    
+    var jsonConvertedAmount: ConverterData?
+    
+    var value = ConversationValue(amount: "", fromCurrency: .usd, toCurrency: .uah)
+    
+    
+    public func setConverter(onSuccess: @escaping () -> Void) {
+        NetworkManager.shared.convert(value: value,  onSuccess: { [weak self] json in
+            self?.jsonConvertedAmount = json
+            DispatchQueue.main.async {
+                onSuccess()
+            }
+        }, onError: { print( $0 )})
     }
 }

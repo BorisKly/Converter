@@ -60,6 +60,7 @@
 		E41F8BA82A3220040077379B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E41F8BB12A36F01A0077379B /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
 		E41F8BB32A36F2320077379B /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		E41F8BB72A37106D0077379B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +95,7 @@
 		E41F8B6A2A31F1790077379B = {
 			isa = PBXGroup;
 			children = (
+				E41F8BB72A37106D0077379B /* MyPlayground.playground */,
 				E41F8B752A31F1790077379B /* Converter */,
 				E41F8B742A31F1790077379B /* Products */,
 				62123AE1A5E68318DCA03FB0 /* Pods */,
@@ -154,8 +156,8 @@
 				E41F8B972A31F3950077379B /* ConverterViewController.swift */,
 				E41F8B952A31F38A0077379B /* ConverterView.swift */,
 				E41F8B992A31F3A30077379B /* ConverterModel.swift */,
-				E41F8BA02A3200390077379B /* ConverterData.swift */,
 				E41F8BA62A321C3F0077379B /* EnumPickerDelegate.swift */,
+				E41F8BA02A3200390077379B /* ConverterData.swift */,
 			);
 			path = Converter;
 			sourceTree = "<group>";

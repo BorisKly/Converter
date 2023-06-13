@@ -24,19 +24,21 @@ class ConverterView: UIView {
     }()
     public let fromCurrency: UIPickerView = {
         let picker = UIPickerView()
-        
+        picker.backgroundColor = Colors.backgroundBase
+        picker.layer.cornerRadius = 10
         return picker
     }()
     
     public let toCurrency: UIPickerView = {
         let picker = UIPickerView()
-        
+        picker.backgroundColor = Colors.backgroundBase
+        picker.layer.cornerRadius = 10
         return picker
     }()
     
     public let convertBtn: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = Colors.primaryColor
+        btn.backgroundColor = Colors.backgroundBase
         btn.layer.cornerRadius = 10
         btn.setTitleColor(.black, for: .normal)
         btn.setTitle("Convert", for: .normal)
@@ -46,10 +48,16 @@ class ConverterView: UIView {
         return btn
     }()
     
+    private let enterAmountLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Enter amount:"
+        lbl.backgroundColor = .clear
+        return lbl
+    }()
+    
     private let fromLbl: UILabel = {
         let lbl = UILabel()
         lbl.text = "Convert from:"
-
         lbl.backgroundColor = .clear
         return lbl
     }()
@@ -60,7 +68,12 @@ class ConverterView: UIView {
         lbl.backgroundColor = .clear
         return lbl
     }()
-    
+    private let pressLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Press to convert:"
+        lbl.backgroundColor = .clear
+        return lbl
+    }()
     public let resultLbl: UILabel = {
         let lbl = UILabel()
         lbl.backgroundColor = .clear
@@ -93,11 +106,13 @@ class ConverterView: UIView {
     }
     
     private func addStackView() {
+        stack.addArrangedSubview(enterAmountLbl)
         stack.addArrangedSubview(amountTextField)
         stack.addArrangedSubview(fromLbl)
         stack.addArrangedSubview(fromCurrency)
         stack.addArrangedSubview(toLbl)
         stack.addArrangedSubview(toCurrency)
+        stack.addArrangedSubview(pressLbl)
         stack.addArrangedSubview(convertBtn)
         stack.addArrangedSubview(resultLbl)
     }
