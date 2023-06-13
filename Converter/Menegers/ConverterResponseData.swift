@@ -8,10 +8,10 @@
 import Foundation
 
 struct ConverterResponseData: Codable {
-   // let success: Bool
-  //  let query: Query
-   // let info: Info
-   // let historical, date: String
+    // let success: Bool
+    // let query: Query
+    // let info: Info
+    // let historical, date: String
     let result: Double
 }
 

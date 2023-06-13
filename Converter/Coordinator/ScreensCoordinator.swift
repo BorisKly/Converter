@@ -29,7 +29,7 @@ final class ScreensCoordinator: Coordinator {
     // MARK: -
     // MARK: Methods
 
-    private func privat() {
+    private func loadConverterScreen() {
         let controller =
             ConverterViewController.startVC()
         self.navigationController.pushViewController(controller, animated: true)
@@ -41,7 +41,7 @@ extension ScreensCoordinator {
     public func jumpToScreen(_ jumpTo: AvailableScreens) {
         switch jumpTo {
         case .exchangeRates:
-            self.privat()
+            self.loadConverterScreen()
         }
     }
 }

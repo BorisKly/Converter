@@ -77,6 +77,8 @@ class ConverterView: UIView {
     public let resultLbl: UILabel = {
         let lbl = UILabel()
         lbl.backgroundColor = .clear
+        lbl.textAlignment = .center
+        lbl.font = .boldSystemFont(ofSize: 30)
         return lbl
     }()
     

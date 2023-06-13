@@ -38,7 +38,7 @@ class ConverterViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismisKeyboard))
         view.addGestureRecognizer(tapGesture)
         
-        enumPickerDelegate = EnumPickerDelegate(values: [.chf, .eur, .gbp, .usd])
+        enumPickerDelegate = EnumPickerDelegate(values: Currency.allCases)
       
         mainView?.toCurrency.delegate = enumPickerDelegate
         mainView?.toCurrency.dataSource = enumPickerDelegate
@@ -55,27 +55,25 @@ class ConverterViewController: UIViewController {
     private func bindView() {
         
         mainView?.convertBtn.rx.tap.bind(onNext: { [weak self] _ in
-            self?.model.setConverter {
-               print("")
-            }
-           // self?.mainView?.resultLbl.text = self?.model.jsonP?.result
+            self?.model.setConverter(onSuccess: { [weak self] result in
+                self?.mainView?.resultLbl.text = String(result.result)
+            })
         }).disposed(by: disposeBag)
         
         mainView?.amountTextField.rx.text
             .bind(onNext: { [weak self] amount in
-                print(amount)
                 self?.model.value.amount = amount ?? "0"
             }).disposed(by: disposeBag)
         
-//        mainView?.toCurrency.rx.itemSelected.bind(onNext: { [weak self] to in
-//            print(to.row)
-//            self?.model.value?.toCurrency = to.row.description
-//        }).disposed(by: disposeBag)
+        mainView?.toCurrency.rx.itemSelected.bind(onNext: { [weak self] to in
+            print(to.row)
+           // self?.model.value.toCurrency = to
+        }).disposed(by: disposeBag)
        
-//        mainView?.fromCurrency.rx.itemSelected.bind(onNext: { [weak self] from in
-//            print(from.component.description)
-//            self?.model.value?.fromCurrency = from.row
-//        }).disposed(by: disposeBag)
+        mainView?.fromCurrency.rx.itemSelected.bind(onNext: { [weak self] from in
+            print(from.component.description)
+           // self?.model.value?.fromCurrency = from.row
+        }).disposed(by: disposeBag)
         
     }
 }

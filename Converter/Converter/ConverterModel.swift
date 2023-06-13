@@ -14,11 +14,11 @@ class ConverterModel {
     var value = ConversationValue(amount: "", fromCurrency: .usd, toCurrency: .uah)
     
     
-    public func setConverter(onSuccess: @escaping () -> Void) {
+    public func setConverter(onSuccess: @escaping (ConverterData) -> Void) {
         NetworkManager.shared.convert(value: value,  onSuccess: { [weak self] json in
             self?.jsonConvertedAmount = json
             DispatchQueue.main.async {
-                onSuccess()
+                onSuccess(json)
             }
         }, onError: { print( $0 )})
     }

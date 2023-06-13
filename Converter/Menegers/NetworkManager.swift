@@ -26,7 +26,6 @@ enum CurrencyToShow: String {
 
 enum NetworkApiMethods: String {
     case convert = "convert"
-    case latest = "latest"
     
     var path: String {
         let generalPath = #"/v1/"#
@@ -34,7 +33,7 @@ enum NetworkApiMethods: String {
     }
 }
 
-enum Currency: String {
+enum Currency: String, CaseIterable {
     case usd = "USD"
     case uah = "UAH"
     case eur = "EUR"
@@ -49,15 +48,6 @@ struct ConversationValue {
     var toCurrency: Currency
 }
 
-struct LatestValue {
-    var base: Currency
-    var rates: Rates
-}
-
-struct Rates {
-    var currencyRates: [Currency: Double]
-}
-
 class NetworkManager {
     
     let key = ConfigValues.get().AccessKeys.accessKeyToExchangeRates
@@ -68,8 +58,6 @@ class NetworkManager {
     private init() {}
 
     public func convert(value: ConversationValue, onSuccess: @escaping (ConverterData) -> (), onError: (Error) ->()) {
-        
-        print("Key : \(ConfigValues.get().AccessKeys.accessKeyToExchangeRates)")
 
         var components = URLComponents()
         components.scheme = scheme
@@ -90,18 +78,12 @@ class NetworkManager {
             return
         }
         
-        print(url.absoluteString)
- 
         let task = URLSession.shared.dataTask(with: url ){
             (data, response, error) in
             guard let data = data,
                   let jsonString = try? JSONDecoder().decode(ConverterResponseData.self, from: data) else {
-                print(data)
-                print(response)
-                print(error)
                 print("Error - cannot get information from url"); return}
             let viewData = ConverterData(result: jsonString.result)
-            print(viewData)
             onSuccess(viewData)
         }
         task.resume()
