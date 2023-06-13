@@ -30,9 +30,6 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 
-
-## keys.plist file ignore
-## Menegers/*.plist
 keys.plist
 
 ## Playgrounds
