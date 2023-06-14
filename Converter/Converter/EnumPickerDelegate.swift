@@ -11,8 +11,6 @@ class EnumPickerDelegate:NSObject, UIPickerViewDelegate, UIPickerViewDataSource 
    
     let values: [Currency]
     
-    let model = ConverterModel()
-    
     init(values: [Currency]) {
         self.values = values
     }
@@ -26,11 +24,6 @@ class EnumPickerDelegate:NSObject, UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        values[row].rawValue
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedValue = values[row]
-        print(selectedValue)
+        values[row].stringValue
     }
 }

@@ -28,10 +28,10 @@
 		E41F8BA72A321C3F0077379B /* EnumPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BA62A321C3F0077379B /* EnumPickerDelegate.swift */; };
 		E41F8BA92A3220040077379B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BA82A3220040077379B /* Colors.swift */; };
 		E41F8BB22A36F01A0077379B /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BB12A36F01A0077379B /* Access.swift */; };
-		E41F8BB42A36F2320077379B /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E41F8BB32A36F2320077379B /* Keys.plist */; };
 		E41F8BC22A39A2510077379B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BC12A39A2510077379B /* Fonts.swift */; };
 		E41F8BC42A39A2990077379B /* knewave.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E41F8BC32A39A2990077379B /* knewave.ttf */; };
 		E41F8BC82A39A3820077379B /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41F8BC72A39A3820077379B /* UILabel+.swift */; };
+		E4EE72672A39DAAF00639787 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4EE72662A39DAAF00639787 /* Keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,11 +60,11 @@
 		E41F8BA62A321C3F0077379B /* EnumPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPickerDelegate.swift; sourceTree = "<group>"; };
 		E41F8BA82A3220040077379B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E41F8BB12A36F01A0077379B /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
-		E41F8BB32A36F2320077379B /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		E41F8BB72A37106D0077379B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E41F8BC12A39A2510077379B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		E41F8BC32A39A2990077379B /* knewave.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = knewave.ttf; sourceTree = "<group>"; };
 		E41F8BC72A39A3820077379B /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		E4EE72662A39DAAF00639787 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 				E41F8B9C2A31FD780077379B /* NetworkManager.swift */,
 				E41F8B9E2A31FF560077379B /* ConverterResponseData.swift */,
 				E41F8BB12A36F01A0077379B /* Access.swift */,
-				E41F8BB32A36F2320077379B /* Keys.plist */,
+				E4EE72662A39DAAF00639787 /* Keys.plist */,
 			);
 			path = Menegers;
 			sourceTree = "<group>";
@@ -255,11 +255,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E41F8BB42A36F2320077379B /* Keys.plist in Resources */,
 				E41F8B832A31F17A0077379B /* LaunchScreen.storyboard in Resources */,
 				E41F8BC42A39A2990077379B /* knewave.ttf in Resources */,
 				E41F8B802A31F17A0077379B /* Assets.xcassets in Resources */,
 				E41F8B7E2A31F1790077379B /* Main.storyboard in Resources */,
+				E4EE72672A39DAAF00639787 /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,7 +52,7 @@ class ConverterViewController: UIViewController {
     @objc func dismisKeyboard() {
         view.endEditing(true)
     }
-    private func bindView() {
+    private func bindView() {  //  force unwrap
         
         mainView?.convertBtn.rx.tap.bind(onNext: { [weak self] _ in
             self?.model.setConverter(onSuccess: { [weak self] result in
@@ -64,16 +64,15 @@ class ConverterViewController: UIViewController {
             .bind(onNext: { [weak self] amount in
                 self?.model.value.amount = amount ?? "0"
             }).disposed(by: disposeBag)
-        
-        mainView?.toCurrency.rx.itemSelected.bind(onNext: { [weak self] to in
-            print(to.row)
-           // self?.model.value.toCurrency = to
-        }).disposed(by: disposeBag)
        
         mainView?.fromCurrency.rx.itemSelected.bind(onNext: { [weak self] from in
             print(from.component.description)
-           // self?.model.value?.fromCurrency = from.row
+            self?.model.value.fromCurrency = Currency(rawValue: from.row)!
         }).disposed(by: disposeBag)
         
+        mainView?.toCurrency.rx.itemSelected.bind(onNext: { [weak self] to in
+            print(to.row)
+            self?.model.value.toCurrency = Currency(rawValue: to.row)!
+        }).disposed(by: disposeBag)
     }
 }

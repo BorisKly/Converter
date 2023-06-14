@@ -9,20 +9,7 @@ import Foundation
 
 // Converter works free for metalpriceapi.com !!!!!!!
 
-enum CurrencyToShow: String {
-    case usd
-    case eur
-    case gbp
-    case chf
-    var description: String {
-        switch self {
-        case .usd: return "USD"
-        case .eur: return "EUR"
-        case .gbp: return "GBP"
-        case .chf: return "CHF"
-        }
-    }
- }
+
 
 enum NetworkApiMethods: String {
     case convert = "convert"
@@ -33,14 +20,41 @@ enum NetworkApiMethods: String {
     }
 }
 
-enum Currency: String, CaseIterable {
-    case usd = "USD"
-    case uah = "UAH"
-    case eur = "EUR"
-    case gbp = "GBP"
-    case chf = "CHF"
-    case jpy = "JPY"
+
+enum Currency: Int, CaseIterable {
+    case case0 = 0
+    case case1 = 1
+    case case2 = 2
+    case case3 = 3
+    case case4 = 4
+    case case5 = 5
+    
+    var  stringValue: String {
+        switch self {
+        case .case0:
+            return "USD"
+        case .case1:
+            return "UAH"
+        case .case2:
+            return "UER"
+        case .case3:
+            return "GPB"
+        case .case4:
+            return "CHF"
+        case .case5:
+            return "JPY"
+        }
+    }
 }
+
+//enum Currency: String, CaseIterable {
+//    case usd = "USD"
+//    case uah = "UAH"
+//    case eur = "EUR"
+//    case gbp = "GBP"
+//    case chf = "CHF"
+//    case jpy = "JPY"
+//}
 
 struct ConversationValue {
     var amount: String
@@ -67,8 +81,8 @@ class NetworkManager {
         
         let quertyItems: [URLQueryItem] = [
             URLQueryItem(name: "api_key", value: key),
-            URLQueryItem(name: "from", value: value.fromCurrency.rawValue),
-            URLQueryItem(name: "to", value: value.toCurrency.rawValue),
+            URLQueryItem(name: "from", value: value.fromCurrency.stringValue),
+            URLQueryItem(name: "to", value: value.toCurrency.stringValue),
             URLQueryItem(name: "amount", value: String(value.amount))
         ]
         
