@@ -11,7 +11,7 @@ class ConverterModel {
     
     var jsonConvertedAmount: ConverterData?
     
-    var value = ConversationValue(amount: "", fromCurrency: .usd, toCurrency: .uah)
+    var value = ConversationValue(amount: "", fromCurrency: .usd, toCurrency: .usd)
     
     
     public func setConverter(onSuccess: @escaping (ConverterData) -> Void) {

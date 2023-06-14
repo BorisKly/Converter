@@ -48,40 +48,12 @@ class ConverterView: UIView {
         return btn
     }()
     
-    private let enterAmountLbl: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "Enter amount:"
-        lbl.backgroundColor = .clear
-        return lbl
-    }()
-    
-    private let fromLbl: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "Convert from:"
-        lbl.backgroundColor = .clear
-        return lbl
-    }()
-    
-    private let toLbl: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "To:"
-        lbl.backgroundColor = .clear
-        return lbl
-    }()
-    private let pressLbl: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "Press to convert:"
-        lbl.backgroundColor = .clear
-        return lbl
-    }()
-    public let resultLbl: UILabel = {
-        let lbl = UILabel()
-        lbl.backgroundColor = .clear
-        lbl.textAlignment = .center
-        lbl.font = .boldSystemFont(ofSize: 30)
-        return lbl
-    }()
-    
+    private let enterAmountLbl = UILabel()
+    private let fromLbl = UILabel()
+    private let toLbl = UILabel()
+    private let pressLbl = UILabel()
+    public let resultLbl = UILabel()
+        
     let stack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -117,12 +89,18 @@ class ConverterView: UIView {
         stack.addArrangedSubview(pressLbl)
         stack.addArrangedSubview(convertBtn)
         stack.addArrangedSubview(resultLbl)
+        
+        fromLbl.setUILabel(text: "Convert from:")
+        enterAmountLbl.setUILabel(text: "Enter amount:")
+        pressLbl.setUILabel(text: "Press to convert:")
+        resultLbl.setUILabel(text: "")
+        toLbl.setUILabel(text: "To:")
     }
     
     func setConstraints() {
         stack.pin
             .width(95%)
-            .height(50%)
+            .height(60%)
             .top(100)
             .hCenter()
     }
