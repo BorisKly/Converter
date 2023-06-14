@@ -36,7 +36,7 @@ class ConverterViewController: UIViewController {
         super.viewDidLoad()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismisKeyboard))
-        view.addGestureRecognizer(tapGesture)
+        mainView?.addGestureRecognizer(tapGesture)
         
         enumPickerDelegate = EnumPickerDelegate(values: Currency.allCases)
       
