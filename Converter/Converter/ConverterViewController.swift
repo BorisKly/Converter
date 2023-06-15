@@ -13,10 +13,9 @@ class ConverterViewController: UIViewController {
 
     public var model: ConverterModel = ConverterModel()
 
-    var enumPickerDelegate : EnumPickerDelegate!
+    var enumPickerDelegate : EnumPickerDelegate?
     let disposeBag = DisposeBag()
  
-    
     private var mainView: ConverterView? {
         return self.view as? ConverterView
     }
@@ -66,7 +65,6 @@ class ConverterViewController: UIViewController {
             }).disposed(by: disposeBag)
        
         mainView?.fromCurrency.rx.itemSelected.bind(onNext: { [weak self] from in
-            print(from.component.description)
             self?.model.value.fromCurrency = Currency(rawValue: from.row)!
         }).disposed(by: disposeBag)
         

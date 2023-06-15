@@ -4,12 +4,25 @@
 //
 //  Created by Borys Klykavka on 08.06.2023.
 //
+// Converter works free for metalpriceapi.com !!!!!!!
 
 import Foundation
 
-// Converter works free for metalpriceapi.com !!!!!!!
+enum NetworkError: Error, LocalizedError {
 
+    case noDataInResponse
 
+    public var errorDescription: String? {
+        return localizedDescription
+    }
+
+    private var localizedDescription: String {
+        switch self {
+        case .noDataInResponse:
+            return "No data in Response"
+        }
+    }
+}
 
 enum NetworkApiMethods: String {
     case convert = "convert"
@@ -22,39 +35,24 @@ enum NetworkApiMethods: String {
 
 
 enum Currency: Int, CaseIterable {
-    case case0 = 0
-    case case1 = 1
-    case case2 = 2
-    case case3 = 3
-    case case4 = 4
-    case case5 = 5
+    case usd = 0
+    case uah = 1
+    case eur = 2
+    case gpb = 3
+    case chf = 4
+    case jpy = 5
     
     var  stringValue: String {
         switch self {
-        case .case0:
-            return "USD"
-        case .case1:
-            return "UAH"
-        case .case2:
-            return "UER"
-        case .case3:
-            return "GPB"
-        case .case4:
-            return "CHF"
-        case .case5:
-            return "JPY"
+        case .usd: return "USD"
+        case .uah: return "UAH"
+        case .eur: return "EUR"
+        case .gpb: return "GPB"
+        case .chf: return "CHF"
+        case .jpy: return "JPY"
         }
     }
 }
-
-//enum Currency: String, CaseIterable {
-//    case usd = "USD"
-//    case uah = "UAH"
-//    case eur = "EUR"
-//    case gbp = "GBP"
-//    case chf = "CHF"
-//    case jpy = "JPY"
-//}
 
 struct ConversationValue {
     var amount: String
@@ -71,7 +69,7 @@ class NetworkManager {
     public static let shared = NetworkManager()
     private init() {}
 
-    public func convert(value: ConversationValue, onSuccess: @escaping (ConverterData) -> (), onError: (Error) ->()) {
+    public func convert(value: ConversationValue, onSuccess: @escaping (ConverterData) -> (), onError: @escaping (Error) ->()) {
 
         var components = URLComponents()
         components.scheme = scheme
@@ -96,7 +94,9 @@ class NetworkManager {
             (data, response, error) in
             guard let data = data,
                   let jsonString = try? JSONDecoder().decode(ConverterResponseData.self, from: data) else {
-                print("Error - cannot get information from url"); return}
+                onError(NetworkError.noDataInResponse)
+                return
+            }
             let viewData = ConverterData(result: jsonString.result)
             onSuccess(viewData)
         }
